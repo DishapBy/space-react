@@ -2,7 +2,7 @@
   "name": "space-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/DishapBy/space-react",
+  "homepage": "https://dishapby.github.io/space-react/",
   "deploy": "npm run build&&gh-pages -d build",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
