@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './style.css';
-import {BrowserRouter, Route } from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import Features from "./components/Features/Features";
 import Calendar from "./components/Calendar/Calendar";
@@ -49,33 +47,25 @@ class App extends React.Component {
             .then(data => this.setState({company: data}))
     }
 
-
-
     render() {
-
         return (
             <BrowserRouter>
                 <Header rockets={this.state.rockets} changeRocket={this.changeRocket}/>
-                <Route exact path={'/'}>
-                    {this.state.company && <Home company={this.state.company} />}
-                </Route>
-                <Route path={'/rocket'}>
-                    <Main rocket={this.state.rocket}/>
-                    {this.state.rocketFeatures && <Features {...this.state.rocketFeatures} />}
-                </Route>
 
-                <Route path={'/calendar'}>
-                    {/*<Main rocket={this.state.rocket} />*/}
-                    <Calendar />
-                </Route>
+                 <Route exact
+                       path={'/'}
+                       render={() => this.state.company && <Home company={this.state.company}/>}/>
 
-                <Route path={'/details'}>
-                    {/*<Main rocket={this.state.rocket} />*/}
-                    <Details />
-                </Route>
+                <Route
+                    // path={'/rocket'}
+                    path={'/rocket/:rocket'}
+                    render={() => this.state.rocketFeatures &&
+                        <Features {...this.state.rocketFeatures} />} />
 
-                {/*{this.state.rocketFeatures && <Features {...this.state.rocketFeatures}/>}*/}
-                {this.state.company && <Footer {...this.state.company}/>}
+                <Route path={'/calendar'} component={Calendar}/>
+                <Route path={'/details/:id'} component={Details}/>
+
+                { this.state.company && <Footer {...this.state.company}/> }
             </BrowserRouter>
         )
     }

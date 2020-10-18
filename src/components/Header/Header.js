@@ -4,6 +4,7 @@ import logo from "../../logo.svg";
 import {Link, NavLink} from 'react-router-dom';
 
 
+
 const Header = (props) => {
     return (
         <header className="header">
@@ -14,12 +15,13 @@ const Header = (props) => {
                     e="logo"
                 />
             </Link>
-
             <nav className="main-nav nav">
                 <ul className="list">
                     {props.rockets.map((item, index) => (
                         <li key={index} className="item">
-                            <Link to={'/rocket'}
+                            <Link to={`/rocket/${item.replace(" ","_")}`}
+                            /*<Link to={`/rocket`}*/
+
                                   onClick={() => {
                                       props.changeRocket(item);
                                   }}

@@ -2,20 +2,26 @@ import React from "react";
 import './features.css';
 import RellaxWrapper from 'react-rellax-wrapper';
 import Main from "../Main/Main";
+import falcon1 from "../../img/falcon1.png"
+import falcon9 from "../../img/falcon9.png"
+import falconHeavy from "../../img/falconHeavy.png"
+import starship from "../../img/starship.png"
 
 const rocketImages = {
-    'Falcon 1': 'falcon-1',
-    'Falcon 9': 'falcon-9',
-    'Falcon Heavy': 'falcon-heavy',
-    'Starship': 'starship'
+    'Falcon 1': falcon1,
+    'Falcon 9': falcon9,
+    'Falcon Heavy': falconHeavy,
+    'Starship': starship
 
 }
 
 const Features = ({name, height, diameter, mass, payload_weights: payloadWeights}) => {
 
+    console.log(name)
+
     return (
         <React.Fragment>
-            <Main />
+            <Main rocket={name} />
             <section className="features">
                 <h2 className="features-title">
                     {name} <br/>Overview
@@ -50,7 +56,7 @@ const Features = ({name, height, diameter, mass, payload_weights: payloadWeights
                     </table>
                     <RellaxWrapper speed={14}>
                         <img
-                            src={`img/${rocketImages[name]}.png`}
+                            src={rocketImages[name]}
                             alt="rocket"
                             className="rocket"
                         />
