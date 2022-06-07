@@ -14,7 +14,6 @@ const video = {
 }
 
 const Main = (props) => {
-    console.log(video.hasOwnProperty(props.rocket))
     return (
         <section className="main">
             <h1 className="title">

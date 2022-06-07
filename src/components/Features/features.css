@@ -5,7 +5,7 @@
     max-width: 1230px;
     width: 90%;
     margin: auto;
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .features-title {
@@ -78,7 +78,7 @@
     }
 
     .table {
-        margin-bottom: 0;
+        margin-bottom: 60px;
     }
 
     .table-column {

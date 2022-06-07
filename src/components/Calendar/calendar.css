@@ -55,8 +55,36 @@
     margin-bottom: 25px;
 }
 
+.button.launches-details{
+    min-height: 60px;
+}
+
 .launches-details {
     display: block;
+    position: relative;
+    transition: width .5s;
+    z-index: 2;
+}
+
+.launches-details:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: all 1s;
+    z-index: -1;
+}
+
+.launches-details:hover:after{
+    width: 100%;
+}
+
+.launches-details:hover{
+    color: #010001;
+    border: none;
 }
 
 @media (max-width: 425px) {
